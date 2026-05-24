@@ -16,4 +16,8 @@ Die maßgeblichen App-Dateien liegen jetzt direkt im Repository:
 
 ## Nächster Veröffentlichungsschritt
 
-GitHub Pages im Repository `Checkapp` aktivieren und als Quelle den Branch `main` mit dem Root-Verzeichnis auswählen.
+Der GitHub-Pages-Workflow liegt unter `.github/workflows/pages.yml` und veröffentlicht die statische App aus dem Branch `main`.
+
+Nach dem ersten erfolgreichen Deployment sollte die App unter folgender Adresse erreichbar sein:
+
+`https://lzl462.github.io/Checkapp/`
