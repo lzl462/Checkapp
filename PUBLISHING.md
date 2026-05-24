@@ -1,6 +1,6 @@
 # Checkapp Veröffentlichung
 
-Die App soll künftig über GitHub Pages aus dem Repository `Check-App` veröffentlicht werden.
+Die App soll künftig über GitHub Pages aus dem Repository `Checkapp` veröffentlicht werden.
 
 Der frühere lokale Webserver wurde entfernt:
 
@@ -16,4 +16,4 @@ Die maßgeblichen App-Dateien liegen jetzt direkt im Repository:
 
 ## Nächster Veröffentlichungsschritt
 
-GitHub Pages im Repository `Check-App` aktivieren und als Quelle den Branch `main` mit dem Root-Verzeichnis auswählen.
+GitHub Pages im Repository `Checkapp` aktivieren und als Quelle den Branch `main` mit dem Root-Verzeichnis auswählen.
