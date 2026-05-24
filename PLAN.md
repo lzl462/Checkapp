@@ -22,10 +22,11 @@
 - Offene Aufgaben werden nach Fälligkeitsdatum sortiert
 - Papierkorb optisch verfeinert
 - Speicherung im Browser
+- GitHub-Pages-Workflow für die Veröffentlichung eingerichtet
 
 ## Als Nächstes
 
-- GitHub Pages für das Repository Checkapp aktivieren
+- GitHub Pages Deployment prüfen und veröffentlichte Adresse testen
 - Stabilität auf dem iPad weiter beobachten
 
 ## Ideen Später
