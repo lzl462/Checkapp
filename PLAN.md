@@ -25,7 +25,7 @@
 
 ## Als Nächstes
 
-- GitHub Pages für das Repository Check-App aktivieren
+- GitHub Pages für das Repository Checkapp aktivieren
 - Stabilität auf dem iPad weiter beobachten
 
 ## Ideen Später
