@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="de">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Checkapp</title>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <main class="app-shell">
+      <section class="topbar" aria-labelledby="app-title">
+        <div>
+          <p class="eyebrow">Planen und abhaken</p>
+          <h1 id="app-title">Checkapp</h1>
+        </div>
+        <div class="topbar-tools">
+          <div class="action-buttons" aria-label="Neue Einträge">
+            <button id="open-task-form" class="toolbar-button" type="button" aria-expanded="false" aria-controls="task-form">Aufgabe</button>
+            <button id="open-list-form" class="toolbar-button secondary" type="button" aria-expanded="false" aria-controls="list-form">Checkliste</button>
+            <button id="archive-toggle" class="toolbar-button secondary" type="button" aria-expanded="false" aria-controls="archive-section">Archiv</button>
+          </div>
+          <div class="progress" aria-live="polite">
+            <span id="progress-label">0 von 0 erledigt</span>
+            <div class="progress-track" aria-hidden="true">
+              <span id="progress-bar"></span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="input-panel" class="input-panel" aria-label="Neuer Eintrag" hidden>
+        <form id="task-form" class="task-form" hidden>
+          <label for="task-input">Neue Aufgabe</label>
+          <div class="form-row">
+            <input id="task-input" type="text" autocomplete="off" placeholder="z. B. Koffer packen">
+            <input id="task-due-input" class="date-input" type="date" aria-label="Fälligkeitsdatum">
+            <select id="list-select" aria-label="Liste auswählen"></select>
+            <button type="submit">Hinzufügen</button>
+          </div>
+        </form>
+        <form id="list-form" class="list-form" hidden>
+          <label for="list-input">Neue Checkliste</label>
+          <div class="form-row">
+            <input id="list-input" type="text" autocomplete="off" placeholder="z. B. Reise">
+            <button type="submit">Liste erstellen</button>
+          </div>
+        </form>
+      </section>
+
+      <section class="workspace" aria-label="Checklisten">
+        <aside class="lists-panel">
+          <div class="panel-heading">
+            <h2>Listen</h2>
+          </div>
+          <div id="lists" class="lists" role="list"></div>
+        </aside>
+
+        <section class="tasks-panel" aria-labelledby="active-list-title">
+          <div class="panel-heading tasks-heading">
+            <div>
+              <p id="active-list-count" class="muted">0 Aufgaben</p>
+              <h2 id="active-list-title">Heute</h2>
+            </div>
+            <div class="list-actions" aria-label="Checkliste verwalten">
+              <button id="rename-list" class="ghost-button" type="button">Umbenennen</button>
+              <button id="delete-list" class="ghost-button danger-ghost" type="button">Liste löschen</button>
+            </div>
+          </div>
+          <ul id="tasks" class="tasks"></ul>
+          <p id="empty-state" class="empty-state">Noch keine Aufgaben in dieser Liste.</p>
+          <section id="archive-section" class="archive-section" aria-labelledby="archive-title" hidden>
+            <div class="archive-heading">
+              <div>
+                <h3 id="archive-title">Archiv</h3>
+                <p id="archive-count" class="muted">0 erledigte Aufgaben</p>
+              </div>
+              <div class="archive-controls" aria-label="Archiv sortieren und filtern">
+                <select id="archive-filter" aria-label="Archiv filtern">
+                  <option value="all">Alle erledigten</option>
+                  <option value="week">Letzte 7 Tage</option>
+                  <option value="older">Älter als 7 Tage</option>
+                </select>
+                <select id="archive-sort" aria-label="Archiv sortieren">
+                  <option value="newest">Neueste zuerst</option>
+                  <option value="oldest">Älteste zuerst</option>
+                </select>
+              </div>
+            </div>
+            <ul id="archive-tasks" class="tasks archive-tasks"></ul>
+            <p id="archive-empty-state" class="empty-state">Noch nichts erledigt.</p>
+          </section>
+        </section>
+      </section>
+
+      <section class="trash-dock" aria-label="Papierkorb">
+        <button id="trash-toggle" class="trash-toggle" type="button" aria-expanded="false" aria-controls="trash-section">Papierkorb (0)</button>
+      </section>
+
+      <section id="trash-section" class="trash-section" aria-labelledby="trash-title" hidden>
+        <div class="trash-heading">
+          <div>
+            <p id="trash-count" class="muted">0 gelöschte Aufgaben</p>
+            <h2 id="trash-title">Papierkorb</h2>
+          </div>
+          <p class="trash-note">Gelöschte Aufgaben bleiben 3 Tage erhalten.</p>
+        </div>
+        <ul id="trash-tasks" class="trash-list"></ul>
+        <p id="trash-empty-state" class="empty-state">Der Papierkorb ist leer.</p>
+      </section>
+    </main>
+
+    <dialog id="delete-dialog" class="delete-dialog">
+      <form method="dialog" class="delete-dialog-content">
+        <h2>Aufgabe löschen?</h2>
+        <p>Möchtest du diese Aufgabe wirklich löschen?</p>
+        <p id="delete-task-title" class="delete-task-title"></p>
+        <div class="dialog-actions">
+          <button id="cancel-delete" class="ghost-button" type="button">Abbrechen</button>
+          <button id="confirm-delete" class="danger-button" type="button">In Papierkorb verschieben</button>
+        </div>
+      </form>
+    </dialog>
+
+    <script src="script.js"></script>
+  </body>
+</html>
